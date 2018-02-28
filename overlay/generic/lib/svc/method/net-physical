@@ -524,6 +524,17 @@ if smf_is_globalzone; then
         fi
 
         nictagadm list
+    elif [[ -v CONFIG_adminNic_tag]]; then
+        eval ADMIN_MAC='$'CONFIG_${CONFIG_adminNic_tag}_mac
+        SYSINFO_NIC_admin=$(dladm show-phys -m -o link,address |
+            grep $ADMIN_MAC | awk '{print $1}')
+
+        eval CONFIG_admin_ip='$'CONFIG_${CONFIG_adminNic_tag}_ip
+        eval CONFIG_admin_ip6='$'CONFIG_${CONFIG_adminNic_tag}_ip6
+        eval CONFIG_admin_netmask='$'CONFIG_${CONFIG_adminNic_tag}_netmask
+        eval CONFIG_admin_mtu='$'CONFIG_${CONFIG_adminNic_tag}_mtu
+        eval CONFIG_admin_gateway='$'CONFIG_${CONFIG_adminNic_tag}_gateway
+        eval CONFIG_admin_gateway6='$'CONFIG_${CONFIG_adminNic_tag}_gateway6
     fi
 
     if [[ -z "${SYSINFO_NIC_admin}" ]]; then
