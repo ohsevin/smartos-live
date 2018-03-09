@@ -524,7 +524,7 @@ if smf_is_globalzone; then
         fi
 
         nictagadm list
-    elif [[ -v CONFIG_adminNic_tag]]; then
+    elif [[ -v CONFIG_adminNic_tag ]]; then
         eval ADMIN_MAC='$'CONFIG_${CONFIG_adminNic_tag}_mac
         SYSINFO_NIC_admin=$(dladm show-phys -m -o link,address |
             grep $ADMIN_MAC | awk '{print $1}')
