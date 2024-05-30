@@ -6,7 +6,7 @@
   "private": true,
   "main": "./lib/fw.js",
   "devDependencies": {
-    "mockery": "1.2.0",
+    "mockery": "2.1.0",
     "nodeunit": "0.9.1",
     "ramsey": "0.1.2"
   },
